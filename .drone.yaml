@@ -37,7 +37,8 @@ steps:
     image: plugins/webhook
     secrets: [ COVERALLS_REPO_TOKEN ]
     settings:
-      urls: https://coveralls.io/webhook?repo_token=$COVERALLS_REPO_TOKEN
+      urls:
+        from_secret: COVERALLS_WEBHOOK_URL
       content_type: application/json
       debug: true
       template: |
