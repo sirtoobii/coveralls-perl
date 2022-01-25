@@ -8,6 +8,7 @@ steps:
       COVERALLS_REPO_TOKEN:
         from_secret: COVERALLS_REPO_TOKEN
       COVERALLS_FLAG_NAME: test00
+      COVERALLS_PARALLEL: true
     commands:
       - cpanm --quiet --installdeps --notest .
       - perl Build.PL build && ./Build
@@ -23,6 +24,7 @@ steps:
       COVERALLS_REPO_TOKEN:
         from_secret: COVERALLS_REPO_TOKEN
       COVERALLS_FLAG_NAME: test01
+      COVERALLS_PARALLEL: true
     commands:
       - cpanm --quiet --installdeps --notest .
       - perl Build.PL build && ./Build
@@ -35,7 +37,6 @@ name: Coveralls_webhook_done
 steps:
   - name: send_done
     image: plugins/webhook
-    secrets: [ COVERALLS_REPO_TOKEN ]
     settings:
       urls:
         from_secret: COVERALLS_WEBHOOK_URL
