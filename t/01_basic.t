@@ -87,10 +87,11 @@ subtest 'get_config drone' => sub {
     local $ENV{CIRCLECI}       = undef;
     local $ENV{DRONE_BUILD_NUMBER} = '123';
     local $ENV{DRONE} = "drone";
+    local $ENV{COVERALLS_REPO_TOKEN} = 'abcdef';
 
     my ($got, $endpoint) = Devel::Cover::Report::Coveralls::get_config();
 
-    is $got->{service_name}, 'drone', 'config service_name';
+    is $got->{service_name}, 'travis-pro', 'config service_name';
     is $got->{service_number}, '123', 'config service_number';
     is $endpoint, $normal_endpoint;
 };
