@@ -346,4 +346,3 @@ it under the same terms as Perl itself.
 =head1 AUTHOR
 
 Kan Fushihara E<lt>kan.fushihara@gmail.comE<gt>
-
