@@ -117,20 +117,6 @@ subtest 'get_config local' => sub {
     is $endpoint, $normal_endpoint;
 };
 
-
-sub dummy{
-    local $ENV{TRAVIS}         = undef; # reset on travis
-    local $ENV{GITHUB_ACTIONS} = undef; # reset on github
-    local $ENV{DRONE}           = undef; # reset on drone
-    local $ENV{COVERALLS_REPO_TOKEN} = 'abcdef';
-    local $ENV{GITHUB_TOKEN} = undef;
-
-    my ($got, $endpoint) = Devel::Cover::Report::Coveralls::get_config();
-
-    is $got->{service_name}, 'coveralls-perl', 'config service_name';
-    is $got->{service_event_type}, 'manual', 'config service_event_type';
-    is $endpoint, $normal_endpoint;
-}
 subtest 'get_source' => sub {
     my $source = {
         name => "$FindBin::Bin/example.pl",
@@ -150,4 +136,3 @@ EOS
 };
 
 done_testing;
-
