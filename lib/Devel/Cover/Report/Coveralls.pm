@@ -191,6 +191,7 @@ sub report {
     my $res = eval { decode_json $response->{content} };
 
 
+    print("- Report::Coveralls --------\n");
     if(exists($json->{service_number})){
         print "My build number: ". $json->{service_number} ."\n";
     }
@@ -204,6 +205,7 @@ sub report {
     if($ENV{COVERALLS_PARALLEL}){
         print "Parallel mode: True". "\n"
     }
+    print("----------------------------\n");
 }
 
 
