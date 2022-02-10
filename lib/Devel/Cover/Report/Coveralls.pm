@@ -98,7 +98,7 @@ sub get_config {
         $json->{service_number} = $ENV{CIRCLE_WORKFLOW_ID};
         # Unfortunately, circle-ci reports the url to PR..
     } elsif($ENV{DRONE}) {
-        $json->{service_name} = 'drone';
+        $json->{service_name} = 'travis-pro';
         $json->{service_number} = $ENV{DRONE_BUILD_NUMBER};
         $json->{service_pull_request} = $ENV{DRONE_PULL_REQUEST} if $ENV{DRONE_PULL_REQUEST};
     } elsif ($ENV{SEMAPHORE}) {

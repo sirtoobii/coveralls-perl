@@ -97,7 +97,7 @@ subtest 'get_config drone' => sub {
 
     my ($got, $endpoint) = Devel::Cover::Report::Coveralls::get_config();
 
-    is $got->{service_name}, 'drone', 'config service_name';
+    is $got->{service_name}, 'travis-pro', 'config service_name';
     is $got->{service_number}, '123', 'config service_number';
     is $got->{service_pull_request}, '666', 'config service_pull_request';
     is $endpoint, $normal_endpoint;
